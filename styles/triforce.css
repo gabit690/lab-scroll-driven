@@ -1,0 +1,91 @@
+#scroller {
+  scroll-timeline: --triforce-appear block;
+  overflow-y: scroll;
+}
+
+#scroller-content {
+  position: relative;
+  height: calc(var(--container-height) * 4);
+}
+
+#triforce {
+  position: sticky;
+  top: 0;
+  height: var(--container-height);
+}
+
+.triangle {
+  position: absolute;
+  width: var(--triangle-size);
+  height: var(--triangle-size);
+  background: linear-gradient(90deg, #a17e2e 0%, #f5e8b3 50%, #a17e2e 100%);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%, 50% 0%);
+}
+
+.triangle:nth-child(1) {
+  top: 0%;
+  left: calc(50% - calc(var(--triangle-size) / 2));
+  animation:
+    appear 1ms linear,
+    up-to-middle 1ms linear;
+  animation-timeline: --triforce-appear;
+}
+
+.triangle:nth-child(2) {
+  bottom: 0%;
+  left: 0%;
+  animation:
+    appear 1ms linear,
+    bottom-left-to-middle 1ms linear;
+  animation-timeline: --triforce-appear;
+}
+
+.triangle:nth-child(3) {
+  bottom: 0%;
+  left: calc(100% - var(--triangle-size));
+  animation:
+    appear 1ms linear,
+    bottom-right-to-middle 1ms linear;
+  animation-timeline: --triforce-appear;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes up-to-middle {
+  from {
+    top: 0%;
+  }
+  to {
+    top: calc(50% - var(--triangle-size));
+  }
+}
+
+@keyframes bottom-left-to-middle {
+  from {
+    bottom: 0%;
+    left: 0%;
+  }
+  to {
+    bottom: calc(50% - var(--triangle-size));
+    left: calc(50% - var(--triangle-size));
+  }
+}
+
+@keyframes bottom-right-to-middle {
+  from {
+    bottom: 0%;
+    left: calc(100% - var(--triangle-size));
+  }
+  to {
+    bottom: calc(50% - var(--triangle-size));
+    left: calc(50%);
+  }
+}
