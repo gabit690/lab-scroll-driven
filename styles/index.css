@@ -1,7 +1,10 @@
 @import "./triforce.css";
 
 :root {
+  --background: black;
   --foreground: #fafafa;
+  --dark-sky: #0b112b;
+  --green-zelda: #026012;
   --container-width: 400px;
   --container-height: 500px;
   --triangle-size: 80px;
@@ -14,7 +17,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: var(--background);
   font-family: var(--text);
 }
 
@@ -52,5 +55,5 @@ main {
   border: 3px solid var(--foreground);
   width: var(--container-width);
   height: var(--container-height);
-  background-color: #0b112b;
+  background-color: var(--dark-sky);
 }

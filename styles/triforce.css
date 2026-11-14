@@ -1,11 +1,13 @@
 #scroller {
   scroll-timeline: --triforce-appear block;
   overflow-y: scroll;
+  animation: change-color 1ms linear;
+  animation-timeline: --triforce-appear;
 }
 
 #scroller-content {
   position: relative;
-  height: calc(var(--container-height) * 4);
+  height: calc(var(--container-height) * 6);
 }
 
 #triforce {
@@ -20,6 +22,9 @@
   height: var(--triangle-size);
   background: linear-gradient(90deg, #a17e2e 0%, #f5e8b3 50%, #a17e2e 100%);
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%, 50% 0%);
+  transform-origin: 50% 50%;
+  rotate: 0deg;
+  opacity: 0;
 }
 
 .triangle:nth-child(1) {
@@ -49,12 +54,20 @@
   animation-timeline: --triforce-appear;
 }
 
+@keyframes change-color {
+  to {
+    background-color: var(--green-zelda);
+  }
+}
+
 @keyframes appear {
-  from {
-    opacity: 0;
+  10% {
+    rotate: 0deg;
+    opacity: 1;
   }
 
-  to {
+  100% {
+    rotate: 360deg;
     opacity: 1;
   }
 }
