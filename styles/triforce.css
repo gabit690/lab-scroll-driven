@@ -3,6 +3,7 @@
   overflow-y: scroll;
   animation: change-color 1ms linear;
   animation-timeline: --triforce-appear;
+  animation-range: 85%;
 }
 
 #scroller-content {
@@ -14,6 +15,7 @@
   position: sticky;
   top: 0;
   height: var(--container-height);
+  overflow: hidden;
 }
 
 .triangle {
@@ -61,13 +63,11 @@
 }
 
 @keyframes appear {
-  10% {
-    rotate: 0deg;
-    opacity: 1;
+  0% {
+    opacity: 0;
   }
-
+  10%,
   100% {
-    rotate: 360deg;
     opacity: 1;
   }
 }
@@ -75,9 +75,11 @@
 @keyframes up-to-middle {
   from {
     top: 0%;
+    rotate: 0deg;
   }
   to {
     top: calc(50% - var(--triangle-size));
+    rotate: 360deg;
   }
 }
 
@@ -85,10 +87,12 @@
   from {
     bottom: 0%;
     left: 0%;
+    rotate: 0deg;
   }
   to {
     bottom: calc(50% - var(--triangle-size));
     left: calc(50% - var(--triangle-size));
+    rotate: 360deg;
   }
 }
 
@@ -96,9 +100,11 @@
   from {
     bottom: 0%;
     left: calc(100% - var(--triangle-size));
+    rotate: 0deg;
   }
   to {
     bottom: calc(50% - var(--triangle-size));
     left: calc(50%);
+    rotate: -360deg;
   }
 }
