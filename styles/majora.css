@@ -4,7 +4,15 @@
 }
 
 #viewer-content {
-  height: calc(var(--container-height) * 8);
+  height: calc(var(--container-height) * 20);
+
+  timeline-scope: --moon-falling;
+}
+
+#moon-container {
+  position: sticky;
+  top: 0;
+  height: var(--container-height);
   background-image:
     radial-gradient(1.5px 1.5px at 40px 60px, #fff 50%, transparent 100%),
     radial-gradient(1px 1px at 130px 150px, #fff 50%, transparent 100%),
@@ -26,14 +34,6 @@
     400px 500px,
     173px 211px,
     173px 211px;
-
-  timeline-scope: --moon-falling;
-}
-
-#moon-container {
-  position: sticky;
-  top: 0;
-  height: var(--container-height);
   overflow: hidden;
 }
 
@@ -45,57 +45,71 @@
   right: 10%;
   animation: fallen 1ms linear both;
   animation-timeline: --moon-falling;
-  animation-range: contain 30% contain 100%;
+  animation-range: contain 20% contain 100%;
 }
 
 #majora-container {
   position: sticky;
-  margin-top: calc(var(--container-height) * 2);
   top: 0;
   height: var(--container-height);
   display: flex;
   justify-content: center;
   align-items: center;
-  outline: 3px solid red;
+  outline: 3px dashed rgba(255, 255, 255, 0.1);
   view-timeline-name: --moon-falling;
 }
 
 #majora-mask {
   animation: heartbeat 1ms linear both;
   animation-timeline: --moon-falling;
-  animation-range: contain 0% contain 100%;
+  animation-range: contain 10% contain 100%;
   height: 120px;
 }
 
 @keyframes heartbeat {
   0%,
-  33%,
+  16.5%,
+  33.5%,
+  50%,
   67%,
+  83.5%,
   100% {
     transform: scale(1);
   }
 
-  7%,
-  40%,
-  74% {
+  3.5%,
+  20%,
+  37%,
+  54%,
+  70.5%,
+  87% {
     transform: scale(1.3);
   }
 
-  13%,
-  47%,
-  80% {
+  6.5%,
+  23.5%,
+  40%,
+  57%,
+  74%,
+  90% {
     transform: scale(1);
   }
 
-  20%,
-  53%,
-  87% {
+  10%,
+  27%,
+  44%,
+  60.5%,
+  77%,
+  93.5% {
     transform: scale(1.2);
   }
 
-  27%,
-  60%,
-  93% {
+  13.5%,
+  30%,
+  47%,
+  64%,
+  80.5%,
+  97% {
     transform: scale(1);
   }
 }
@@ -106,9 +120,14 @@
     right: 10%;
     transform: scale(1);
   }
+  40% {
+    top: 26%;
+    right: 22%;
+    transform: scale(1);
+  }
   100% {
     top: 50%;
-    right: 50%;
-    transform: scale(400);
+    right: 40%;
+    transform: scale(50);
   }
 }
